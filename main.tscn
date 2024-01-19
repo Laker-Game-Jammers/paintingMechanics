@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://c45vd62ren3lh"]
+
+[ext_resource type="PackedScene" uid="uid://ddvflobaoncbr" path="res://player.tscn" id="1_40liv"]
+[ext_resource type="Script" path="res://main.gd" id="1_bexql"]
+[ext_resource type="PackedScene" uid="uid://bl1hswf2i43hf" path="res://world.tscn" id="2_ebf75"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_bexql")
+
+[node name="World" parent="." instance=ExtResource("2_ebf75")]
+
+[node name="Player" parent="." instance=ExtResource("1_40liv")]
+position = Vector2(304, 503)
+
+[node name="PlayerStartLocation" type="Marker2D" parent="."]
+position = Vector2(224, 499)
+
+[connection signal="paint" from="Player" to="." method="hanle_paint_signal"]
